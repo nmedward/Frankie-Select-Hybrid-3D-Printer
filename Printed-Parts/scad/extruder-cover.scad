@@ -20,4 +20,4 @@ module ext_cover(){
 }
 }
 
-ext_cover();
+translate([0,0,30]) rotate([180,0,0]) ext_cover();
