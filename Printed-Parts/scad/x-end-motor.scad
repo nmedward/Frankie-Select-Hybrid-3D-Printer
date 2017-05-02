@@ -5,6 +5,9 @@
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
+// Modified by Paul Arden <paul@arden.io> to backport the MakerBot endstop
+// mount designed by Thomas Sanladerer and provided in his STL files.
+
 use <x-end.scad>
 
 module x_end_motor_base(){
@@ -134,7 +137,7 @@ module x_end_motor(){
          }
   x_end_motor_shaft_cutout();
   x_end_motor_holes();
-  x_end_motor_endstop_holes();      
+  //x_end_motor_endstop_holes();      
   selective_infill();
   reinforcement_selective_infill();
          
@@ -146,14 +149,72 @@ module x_end_motor(){
  }
 }
 
-x_end_motor();
+//x_end_motor();
 
+module endstop_base(){
+    union() {
+        //main body
+        difference(){
+            //base
+            translate([0,-14,0]) cube([3,14,38.663]);
+            //large overhang
+            translate([1.5,-10*sqrt(2),0]) rotate([45,0,0]) cube([4,20,20], center = true);
+            //cut for top chamfer
+            translate([1.5,-10*sqrt(2),38.663+2.925]) rotate([45,0,0]) cube([4,10,10], center = true);
+            //cut for middle chamfer
+            translate([1.5,-14+4-5,38.663-4-19-5]) difference(){
+                rotate([0,0,0]) cube([4,10,10], center = true);
+                translate([0,(sqrt(2)/2)*7.5,-((sqrt(2)/2)*7.5)]) rotate([45,0,0]) cube([5,15,15], center = true);
+            }
+        }
+        //top chamfer
+        translate([0,-14+4,38.663-4]) rotate([0,90,0]) cylinder(r=4, h=3, $fn=80);
+        //middle chamfer
+        translate([0,-14+4,38.663-4-19]) rotate([0,90,0]) cylinder(r=4, h=3, $fn=80);
+    }
+}
 
+module endstop_fillet(){
+    difference(){
+        translate([0,0,0]) rotate([45,0,0]) cube([0.25,0.25,0.25]);
+        translate([-0.125,0,0]) cube(0.5,0.25,0.25);
+    }
+}
 
+module endstop_countersink(){
+    rotate([0,90,0]) cylinder(d1=2.7,d2=3.2,h=0.25,$fn=80);
+}
 
+module endstop_buttons(){
+    intersection() {
+        union() {
+            translate([0,-14+4,38.663-4]) rotate([0,90,0]) cylinder(r1=5, r2=4, h=2, $fn=80);
+            translate([0,-14+4,38.663-4-19]) rotate([0,90,0]) cylinder(r1=5, r2=4, h=2, $fn=80);
+        }
+        endstop_base();
+    }
+}
 
+module endstop(){
+    difference(){
+        union(){
+            endstop_base();
+            translate([3,0,0]) endstop_buttons();
+            translate([0,0,38.663-(sqrt(2)*0.125)]) scale([12,1,1]) endstop_fillet();
+        }
+        //top hole
+        translate([-0.5,-14+4,38.663-4]) rotate([0,90,0]) cylinder(d=2.7, h=6, $fn=80);
+        //bottom hole
+        translate([-0.5,-14+4,38.663-4-19]) rotate([0,90,0]) cylinder(d=2.7, h=6, $fn=80);
+        //countersinks
+        translate([4.76,-14+4,38.663-4]) endstop_countersink();
+        translate([4.76,-14+4,38.663-4-19]) endstop_countersink();
+        translate([0.24,-14+4,38.663-4-19]) rotate([0,0,180]) endstop_countersink();
+        translate([0.24,-14+4,38.663-4]) rotate([0,0,180]) endstop_countersink();
+    }
+}
 
-
-
-
-
+union(){
+    translate([-9.5,-28.5,13.337]) endstop();
+    x_end_motor();
+}
