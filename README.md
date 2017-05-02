@@ -34,6 +34,8 @@ Additionally, the 5V inductive probe used for the project is taller than the P.I
 
 <img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/y-corners-rear.png" width="25%" height="25%">
 
+If you're starting your build from scratch and have 350mm smooth rods for your Y-axis you can just cut your threaded rods 20mm longer and use the regular corner pieces. The modified part is only really needed if you have already cut your rods down or don't want the unused distance at the front. Thanks to [@a_volkov](https://twitter.com/a_volkov) for pointing that out.
+
 The original design Tom used modified the Y-corners with an open hole to allow the more commonly available 350mm smooth rods to pass through. When assembling the printer however this makes squaring difficult as there is no reference length. Additionally even with the cable ties in place the rods can then slide out during Y-axis movement causing the bed to fall. The modified rear Y-corners address this by providing an overhanging cap for the extra 20mm of rod length. If you are lucky enough to have 330mm rods you can just print 4 of the y-corner-front.stl parts instead.
 
 * [y-corners-rear.stl](Printed-Parts/stl/y-corners-rear.stl)
