@@ -20,7 +20,7 @@ Additionally the parts here have been re-created in OpenSCAD to facilitate furth
 
 ### Extruder
 
-<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/extruder-body.png" width="25%" height="25%">
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/extruder-body.png" width="25%" height="25%"><img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/extruder-cover.png" width="25%" height="25%"><img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/extruder-idler.png" width="25%" height="25%">
 
 The extruder has been changed to shift the filament path 1mm to the right (when viewed from the front of the printer). This is required since the MK8 hobbed gear that is commonly available is slightly larger than the one Prusa supply with the official printer. While you can force your filament in, the path has a lot more resistance and may even break brittle filament such as PLA. This changed required the cover, idler and body to be modified.
 
@@ -32,13 +32,15 @@ Additionally, the 5V inductive probe used for the project is taller than the P.I
 
 ### Y-Corners
 
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/y-corners-rear.png" width="25%" height="25%">
+
 The original design Tom used modified the Y-corners with an open hole to allow the more commonly available 350mm smooth rods to pass through. When assembling the printer however this makes squaring difficult as there is no reference length. Additionally even with the cable ties in place the rods can then slide out during Y-axis movement causing the bed to fall. The modified rear Y-corners address this by providing an overhanging cap for the extra 20mm of rod length. If you are lucky enough to have 330mm rods you can just print 4 of the y-corner-front.stl parts instead.
 
-* [y-corners-front.stl](Printed-Parts/stl/y-corners-front.stl)
 * [y-corners-rear.stl](Printed-Parts/stl/y-corners-rear.stl)
 
 ### Y-Motor
 
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/y-motor.png" width="25%" height="25%">
 _NOTE: Not yet committed._
 
 This part worked fine so this was just a straight backport from the original STL version to OpenSCAD. The resulting mesh is a little cleaner as it hasn't been reprocessed.
@@ -46,6 +48,8 @@ This part worked fine so this was just a straight backport from the original STL
 * [y-motor.stl](Printed-Parts/stl/y-motor.stl)
 
 ### X-Motor
+
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/x-end-motor.png" width="25%" height="25%">
 
 This part worked fine so this was just a straight backport from the original STL version to OpenSCAD. The resulting mesh is a little cleaner as it hasn't been reprocessed.
 
