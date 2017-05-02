@@ -20,7 +20,7 @@ Additionally the parts here have been re-created in OpenSCAD to facilitate furth
 
 ### Extruder
 
-![extuder-body](Images/extuder-body.png | width=150)
+<img src="Images/extuder-body.png" width="25%" height="25%">
 
 The extruder has been changed to shift the filament path 1mm to the right (when viewed from the front of the printer). This is required since the MK8 hobbed gear that is commonly available is slightly larger than the one Prusa supply with the official printer. While you can force your filament in, the path has a lot more resistance and may even break brittle filament such as PLA. This changed required the cover, idler and body to be modified.
 
