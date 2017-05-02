@@ -20,6 +20,8 @@ Additionally the parts here have been re-created in OpenSCAD to facilitate furth
 
 ### Extruder
 
+![extuder-body](Images/extuder-body.png | width=150)
+
 The extruder has been changed to shift the filament path 1mm to the right (when viewed from the front of the printer). This is required since the MK8 hobbed gear that is commonly available is slightly larger than the one Prusa supply with the official printer. While you can force your filament in, the path has a lot more resistance and may even break brittle filament such as PLA. This changed required the cover, idler and body to be modified.
 
 Additionally, the 5V inductive probe used for the project is taller than the P.I.N.D.A. probe used by Prusa. This means the cable must run behind the probe itself and not above it as with the original one. It can be wedged in but it will tilt the probe as can be seen in the videos. The changes to the extruder body move the probe mount hole 2.65mm out to the right to make room for the cable. It has also been reworked to shrink the hole (the original MK2S one needs to be insanely tight to get any grip), shorten the mount and reduce it to a single clamp screw. The shortened mount has hold outs for the washers and room to use the top and bottom nut and washer sets provided with the probe to secure it.
