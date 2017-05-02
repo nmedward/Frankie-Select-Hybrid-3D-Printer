@@ -1,6 +1,6 @@
-![Dolly](Images/Dolly.png)
-
 # Prusa i3 MK2S-Dolly
+
+![Dolly](Images/Dolly.png)
 
 ## Introduction
 
@@ -41,7 +41,6 @@ The original design Tom used modified the Y-corners with an open hole to allow t
 ### Y-Motor
 
 <img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/y-motor.png" width="25%" height="25%">
-_NOTE: Not yet committed._
 
 This part worked fine so this was just a straight backport from the original STL version to OpenSCAD. The resulting mesh is a little cleaner as it hasn't been reprocessed.
 
