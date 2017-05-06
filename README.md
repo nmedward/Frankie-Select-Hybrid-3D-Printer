@@ -58,11 +58,11 @@ This part worked fine so this was just a straight backport from the original STL
 
 ### Z Nut Holder
 
-<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/x-nut-holder.png" width="25%" height="25%">
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/z-nut-holder.png" width="25%" height="25%">
 
 This part worked fine so this was just a straight backport from the original STL version to OpenSCAD.
 
-* [x-nut-holder.stl](Printed-Parts/stl/x-nut-holder.stl)
+* [z-nut-holder.stl](Printed-Parts/stl/z-nut-holder.stl)
 
 ## Original Prusa i3 MK2S (original README.md contents)
 
