@@ -56,6 +56,14 @@ This part worked fine so this was just a straight backport from the original STL
 
 * [x-end-motor.stl](Printed-Parts/stl/x-end-motor.stl)
 
+### Z Nut Holder
+
+<img src="https://github.com/ardenpm/Original-Prusa-i3/raw/MK2S-Dolly/Images/x-nut-holder.png" width="25%" height="25%">
+
+This part worked fine so this was just a straight backport from the original STL version to OpenSCAD.
+
+* [x-nut-holder.stl](Printed-Parts/stl/x-nut-holder.stl)
+
 ## Original Prusa i3 MK2S (original README.md contents)
 
 Original Prusa i3 MK2S is a 3D printer project maintained by PRUSA RESEARCH.
