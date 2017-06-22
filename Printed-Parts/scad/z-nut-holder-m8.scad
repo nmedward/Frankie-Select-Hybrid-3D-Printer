@@ -1,4 +1,6 @@
-// Backported by Paul Arden <paul@arden.io> from Thomas Sanladerer's design.
+// Top part of M8 nut holder
+// Updated by Alex Volkov
+// From backport by Paul Arden <paul@arden.io> from Thomas Sanladerer's design.
 
 render_fn = 20;
 
@@ -24,25 +26,21 @@ difference(){
         //base
         cylinder(d=25, h=3.3, $fn=render_fn);
         //outer wall for m8 nut
-        translate([0,0, 4])
-        cube([m8_outer-1, m8_outer+2, max_height], center=true);
-        
-        // top wall
-        translate([0, 0, max_height])
-        
-        cylinder(d=m8_inner+5, h=top_thick, $fn=render_fn);
+        translate([0,0, top_thick + 1])
+        cube([m8_outer-1, m8_outer+2, max_height + top_thick], center=true);
         }
      
     rotate([0,0,90])
     cylinder(d1=m8_outer, d2=m8_outer, h=m8_height,$fn=6);
     
     //cone-shaped hole in top wall
+    cone_height =  top_thick - 2;
     translate([0, 0, m8_height])
-    cylinder(d1=m8_outer-1.4, d2=m8_inner, h=top_thick -2, $fn=render_fn);
+    cylinder(d1=m8_outer-1.4, d2=m8_inner, h=cone_height, $fn=render_fn);
     
     //round hole in top wall
-    translate([0, 0, max_height+2])
-    cylinder(d1=m8_inner, d2=m8_inner, h=top_thick -2, $fn=render_fn);
+    translate([0, 0, max_height+cone_height - 2])
+    cylinder(d1=m8_inner, d2=m8_inner, h=top_thick +5, $fn=render_fn);
        
     
     m3_holes(3.5,9.5,4);
