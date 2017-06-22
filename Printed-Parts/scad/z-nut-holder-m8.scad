@@ -2,10 +2,13 @@
 
 render_fn = 24;
 
-max_height = 8;
-m8_outer_d = 15.2;
-m8_bolt_h = 7;
-m8_d=8.5;
+// All M8 values refer to M8 Nut dimension
+m8_outer = 15.2;
+m8_inner=8.5;
+m8_height = 5.5;
+
+max_height = m8_height + 0.9;
+
 
 top_thick = 5;
 
@@ -18,28 +21,27 @@ module m3_holes(d,r,h){
 translate([0,0,-1.8]) 
 difference(){
     union() {
+        //base
         cylinder(d=25, h=3.3, $fn=render_fn);
-        //outer wall for m8
-        //cylinder(d=m8_outer_d+0.4, h=max_height, $fn=6);
+        //outer wall for m8 nut
         translate([0,0, 4])
-        cube([m8_outer_d-1, m8_outer_d+4.5, max_height], center=true);
+        cube([m8_outer-1, m8_outer+2, max_height], center=true);
         
-        // top wall for the M8 
+        // top wall
         translate([0, 0, max_height])
-        cylinder(d=m8_outer_d-1, h=top_thick, $fn=render_fn);
+        cylinder(d=m8_inner+5, h=top_thick, $fn=render_fn);
         }
-    
-    //translate([0,0,3.3-1.8])
+     
     rotate([0,0,90])
-    cylinder(d1=m8_outer_d, d2=m8_outer_d, h=m8_bolt_h,$fn=6);
+    cylinder(d1=m8_outer, d2=m8_outer, h=m8_height,$fn=6);
     
     //cone-shaped hole in top wall
-    translate([0, 0, m8_bolt_h])
-    cylinder(d1=m8_outer_d-1, d2=m8_d, h=top_thick -2, $fn=render_fn);
+    translate([0, 0, m8_height])
+    cylinder(d1=m8_outer-1, d2=m8_inner, h=top_thick -2, $fn=render_fn);
     
     //round hole in top wall
     translate([0, 0, max_height+2])
-    cylinder(d1=m8_d, d2=m8_d, h=top_thick -2, $fn=render_fn);
+    cylinder(d1=m8_inner, d2=m8_inner, h=top_thick -2, $fn=render_fn);
        
     
     m3_holes(3.5,9.5,4);
