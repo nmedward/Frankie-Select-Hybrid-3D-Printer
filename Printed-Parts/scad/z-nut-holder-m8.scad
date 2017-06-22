@@ -3,7 +3,7 @@
 render_fn = 24;
 
 max_height = 8;
-m8_outer_d = 15.1;
+m8_outer_d = 15.2;
 m8_bolt_h = 7;
 m8_d=8.5;
 
@@ -11,7 +11,7 @@ top_thick = 5;
 
 module m3_holes(d,r,h){
      for (i = [0:6]) {
-        translate([r*cos(i*90),r*sin(i*90),0]) cylinder(d=d,h=h,$fn=render_fn);
+        translate([r*cos(i*180),r*sin(i*180),0]) cylinder(d=d,h=h,$fn=render_fn);
     }    
 }
 
@@ -22,14 +22,11 @@ difference(){
         //outer wall for m8
         //cylinder(d=m8_outer_d+0.4, h=max_height, $fn=6);
         translate([0,0, 4])
-        cube([m8_outer_d, m8_outer_d+4.5, max_height], center=true);
+        cube([m8_outer_d-1, m8_outer_d+4.5, max_height], center=true);
         
         // top wall for the M8 
         translate([0, 0, max_height])
-        cylinder(d=m8_outer_d+0.4, h=top_thick, $fn=render_fn);
-        //translate([0, 0, 4])
-        //cube([m8_outer_d, m8_outer_d, top_thick], center=true);
-        
+        cylinder(d=m8_outer_d-1, h=top_thick, $fn=render_fn);
         }
     
     //translate([0,0,3.3-1.8])
