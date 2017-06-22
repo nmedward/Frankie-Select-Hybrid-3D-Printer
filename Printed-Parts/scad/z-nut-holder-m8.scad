@@ -1,11 +1,11 @@
 // Backported by Paul Arden <paul@arden.io> from Thomas Sanladerer's design.
 
-render_fn = 24;
+render_fn = 20;
 
 // All M8 values refer to M8 Nut dimension
 m8_outer = 15.2;
 m8_inner=8.5;
-m8_height = 5.5;
+m8_height = 5.3;
 
 max_height = m8_height + 0.9;
 
@@ -29,6 +29,7 @@ difference(){
         
         // top wall
         translate([0, 0, max_height])
+        
         cylinder(d=m8_inner+5, h=top_thick, $fn=render_fn);
         }
      
@@ -37,7 +38,7 @@ difference(){
     
     //cone-shaped hole in top wall
     translate([0, 0, m8_height])
-    cylinder(d1=m8_outer-1, d2=m8_inner, h=top_thick -2, $fn=render_fn);
+    cylinder(d1=m8_outer-1.4, d2=m8_inner, h=top_thick -2, $fn=render_fn);
     
     //round hole in top wall
     translate([0, 0, max_height+2])
