@@ -9,37 +9,42 @@ use <polyholes.scad>
 
 bearing_diameter = 14.95;
 
-module horizontal_bearing_base(bearings=1){
- translate(v=[0,0,6]) cube(size = [24,8+bearings*25,12], center = true);	
+module horizontal_bearing_base(bearings=1, bearing_length=25){
+ translate(v=[0,0,6]) cube(size = [24,8+bearings*bearing_length,12], center = true);	
 }
-module horizontal_bearing_holes(bearings=1){
- cutter_lenght = 10+bearings*25;
- one_holder_lenght = 8+25;
- holder_lenght = 8+bearings*25;
- 
- // Main bearing cut
- difference(){
-  translate(v=[0,0,12]) rotate(a=[90,0,0]) translate(v=[0,0,-cutter_lenght/2]) cylinder(h = cutter_lenght, r=(bearing_diameter/2)+0.2, $fn=50);
-  // Bearing retainers
-  translate(v=[0,1-holder_lenght/2,3]) cube(size = [24,6,8], center = true);
-  translate(v=[0,-1+holder_lenght/2,3]) cube(size = [24,6,8], center = true);
- }
- 
- // Ziptie cutouts
- ziptie_cut_ofset = 0;
- for ( i = [0 : bearings-1] ){
-  // For easier positioning I move them by half of one 
-  // bearing holder then add each bearign lenght and then center again
-  translate(v=[0,-holder_lenght/2,0]) translate(v=[0,one_holder_lenght/2+i*25,0]) difference(){
-   union(){
-    translate(v=[0,2-8.5,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 4, r=11.5, $fn=50);
-    translate(v=[0,2+8.5,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 4, r=11.5, $fn=50);
-   }
-   translate(v=[0,12,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 24, r=9, $fn=50);
+module horizontal_bearing_holes(bearings=1, bearing_length=25, center_zip=false){
+  cutter_lenght = 10+bearings*bearing_length;
+  one_holder_lenght = 8+bearing_length;
+  holder_lenght = 8+bearings*bearing_length;
+
+  // Main bearing cut
+  difference(){
+    translate(v=[0,0,12]) rotate(a=[90,0,0]) translate(v=[0,0,-cutter_lenght/2]) cylinder(h = cutter_lenght, r=(bearing_diameter/2)+0.2, $fn=50);
+    // Bearing retainers
+    translate(v=[0,1-holder_lenght/2,3]) cube(size = [24,6,8], center = true);
+    translate(v=[0,-1+holder_lenght/2,3]) cube(size = [24,6,8], center = true);
   }
- }
+
+  // Ziptie cutouts
+  ziptie_cut_ofset = 0;
+  for ( i = [0 : bearings-1] ){
+    // For easier positioning I move them by half of one 
+    // bearing holder then add each bearing lenght and then center again
+    translate(v=[0,-holder_lenght/2,0]) translate(v=[0,one_holder_lenght/2+i*bearing_length,0]) difference(){
+      union(){
+        translate(v=[0,2-bearing_length/3,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 4, r=11.5, $fn=50);
+        translate(v=[0,2+bearing_length/3,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 4, r=11.5, $fn=50);
+        if(bearing_length == 45 && center_zip == true){
+          translate(v=[0,2,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = 4, r=11.5, $fn=50);
+        }
+        
+      }
+      translate(v=[0,bearing_length/2,12]) rotate(a=[90,0,0]) translate(v=[0,0,0]) cylinder(h = bearing_length-1, r=9, $fn=50);
+    }
+  }
  
 }
+
 
 module horizontal_bearing_test(){
  difference(){
