@@ -1,4 +1,9 @@
-# Prusa i3 MK2S-Dolly
+# Frankie MakerSelect V2 Upgrade
+## Introduction
+
+This is a work in progress, I am basing my changes off of the Dolly build to start with. The readme from the project I cloned this from can be seen below. The project itself can be seen [here](https://github.com/avolkov/Dolly-i3-M8-Rod-Z-Axis)
+
+## Prusa i3 MK2S-Dolly originila readme
 
 ![Dolly](Images/Dolly.png)
 
