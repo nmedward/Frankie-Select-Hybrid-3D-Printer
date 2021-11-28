@@ -17,6 +17,9 @@ This project is about updating my MakerSelect V2 by Monoprice. I am calling this
 ## Volcano Hotend
 This upgrade is still being tested but early results are showing substantial improvements from the original hot end of the MSV2. The improvemtnes are primarily in bridging. The benchy tugboat has much better overhangs and horizontal top serfaces bridge support structure much better. Also the switch to an all metal hotend allows for printing at much higher temperatures and at much higher speeds.
 
+First draft, it still needs some wire managment added and probably re-printed in a higher temp plastic.
+![Draft1](Images/ExtruderDraft1.jpg)
+
 ## Prusa i3 MK2S-Dolly (Repo this project is based on)
 
 ![Dolly](Images/Dolly.png)
