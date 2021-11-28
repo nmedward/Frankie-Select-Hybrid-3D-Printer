@@ -174,74 +174,72 @@ translate([-35/2-4,-1,2]) cube([8,15,25]);
    }
    
 module extruder_cover(){
-union(){
-difference(){
-    // Main
     union(){
-        translate([0,0,15]) cube([35,44,15]);
+        difference(){
+            // Main
+            union(){
+                translate([0,0,15]) cube([35,44,15]);
+                
+                translate([34,42,23]) cube([1,18,7]);
+                translate([34,56,23]) cube([4,5,7]);
+                //fan nice look
+                translate([35,0,15]) cube([10,12,15]);
+            }
+            // Fan nice look edge cut
+            translate([+52.6,-3.49,0]) rotate([0,0,-45-180]) translate([0,-5,-0.1]) cube([10,10,32]);  
+            
+            translate([38,58.3,20]) rotate([0,0,45]) cube([5,5,15]);
+            
+            translate([-1,0,0])extruder_nozzle_cut();  
+
+            
+            // Extruder cables path
+            translate([33+4,10,-1]) cylinder(r=2, h=32,$fn=quality*30);
+            translate([33+4,12,22]) cube([4,4,20], center=true);  
+            
+            extruder_nozzle_cooling();
+
+        }
+
+        // 5015 print fan mount pillar
+        translate([6,33,27])rotate([0,0,67]) cube([8,24,3]);    // Connecting cube
+        translate([35/2+12-42.75,6.5+38.5,25])cylinder(r=5.8, h=5, $fn=quality*6); // Hexagon at the end
+
+        // Print fan nozzle mount - right
+        translate([5,61-5,24])cylinder(r=7.5/2, h=6, $fn=quality*6);
         
-        translate([34,42,23]) cube([1,18,7]);
-        translate([34,56,23]) cube([4,5,7]);
-        //fan nice look
-        translate([35,0,15]) cube([10,12,15]);
-    }
-    // Fan nice look edge cut
-    translate([+52.6,-3.49,0]) rotate([0,0,-45-180]) translate([0,-5,-0.1]) cube([10,10,32]);  
-    
-    translate([38,58.3,20]) rotate([0,0,45]) cube([5,5,15]);
-    
-     translate([-1,0,0])extruder_nozzle_cut();  
 
-     
-// Extruder cables path
-    translate([33+4,10,-1]) cylinder(r=2, h=32,$fn=quality*30);
-    translate([33+4,12,22]) cube([4,4,20], center=true);  
-     
-    extruder_nozzle_cooling();
-
-}
-
-// 5015 print fan mount pillar
-translate([6,33,27])rotate([0,0,67]) cube([8,24,3]);    // Connecting cube
-translate([35/2+12-42.75,6.5+38.5,25])cylinder(r=5.8, h=5, $fn=quality*6); // Hexagon at the end
-
-// Print fan nozzle mount - right
-    translate([5,61-5,24])cylinder(r=7.5/2, h=6, $fn=quality*6);
-    
-
-// Print colling airway
-     translate([8,44,28])rotate([0,0,0]) cube([27,9,2]);
-    difference(){
-     translate([8,51.6,28.5])rotate([-45,0,0]) cube([27,7,2]);
-     translate([7,57,20])rotate([0,0,0]) cube([29,7,12]);
-     translate([7,53,22])rotate([0,0,0]) cube([29,7,2]);
-    }    
-    
-    translate([34,44,24])rotate([0,0,0]) cube([1,13,6]);  
-    translate([8-5,44,24])rotate([0,0,0]) cube([1+5,13,6]);  
-    
-   
-// Cooling grill
-difference(){
-    union(){
-    // Fins up
-        //translate([0,37,0]) rotate([0,0,25]) cube([6,1.4,15]);
-        translate([0,32,15]) rotate([0,0,25]) cube([5,1.4,15]);
-        //translate([0,27,0]) rotate([0,0,25]) cube([6,1.4,15]);
-        translate([0,22,15]) rotate([0,0,25]) cube([5,1.4,15]);
-        //translate([0,17,0]) rotate([0,0,25]) cube([6,1.4,15]);
+        // Print colling airway
+        translate([8,44,28])rotate([0,0,0]) cube([27,9,2]);
+        // difference(){
+        //     translate([8,51.6,28.5])rotate([-45,0,0]) cube([27,7,2]);
+        //     translate([7,57,20])rotate([0,0,0]) cube([29,7,12]);
+        //     translate([7,53,22])rotate([0,0,0]) cube([29,7,2]);
+        // }    
         
-        // Structural support
-        translate([0,13,19]) rotate([0,0,0]) cube([4,30,1]);
-        //translate([0,13,14.5]) rotate([0,0,0]) cube([4,30,0.5]);
-    }
-    // Trim
-    translate([-35,0,0])cube([35,43,35]);
+        translate([34,44,24])rotate([0,0,0]) cube([1,13,6]);  
+        translate([8-5,44,24])rotate([0,0,0]) cube([1+5,13,6]);  
+        
     
+        // Cooling grill
+        difference(){
+            union(){
+                // Fins up
+                //translate([0,37,0]) rotate([0,0,25]) cube([6,1.4,15]);
+                translate([0,32,15]) rotate([0,0,25]) cube([5,1.4,15]);
+                //translate([0,27,0]) rotate([0,0,25]) cube([6,1.4,15]);
+                translate([0,22,15]) rotate([0,0,25]) cube([5,1.4,15]);
+                //translate([0,17,0]) rotate([0,0,25]) cube([6,1.4,15]);
+                
+                // Structural support
+                translate([0,13,19]) rotate([0,0,0]) cube([4,30,1]);
+                //translate([0,13,14.5]) rotate([0,0,0]) cube([4,30,0.5]);
+            }
+            // Trim
+            translate([-35,0,0])cube([35,43,35]);
+        }
+    }
 }
-}
-
-   }
    
    
    

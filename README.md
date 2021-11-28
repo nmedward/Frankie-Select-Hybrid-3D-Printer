@@ -21,8 +21,7 @@ First draft, it still needs some wire managment added and probably re-printed in
 ![Draft1](Images/ExtruderDraft1.jpg)
 
 ## Prusa i3 MK2S-Dolly (Repo this project is based on)
-
-![Dolly](Images/Dolly.png)
+Below is the introduction from the original repo that was cloned for this project.
 
 ## Introduction
 
